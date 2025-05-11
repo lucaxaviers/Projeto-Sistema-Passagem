@@ -5,12 +5,6 @@ O Sistema de Passagens Aéreas foi desenvolvido como projeto educacional com o o
 de simular um sistema simples de cadastro de voos, gerenciamento de passageiros e
 venda de passagens, utilizando Python e estruturas de dados como listas e dicionários.
 
-## 👨‍💻 Desenvolvido Por
- - Lucas Xavier
- - Mateus Oliveira
- - Wanderley Vieira
- - Arthur Grizone
-
 ## 🧱 Estrutura do Sistema
  - Os voos são armazenados em um dicionário onde a chave é o código do voo, e o valor
 é outro dicionário com dados como origem, destino, escalas, preço e lugares disponíveis.
@@ -39,3 +33,9 @@ funcionalidade fosse implementada corretamente.
  - Listagem de passageiros por voo
  - Busca de voos por origem, destino ou código 
  - Identificação do voo com menos escalas entre duas cidades
+
+## 👨‍💻 Desenvolvido Por
+ - Lucas Xavier
+ - Mateus Oliveira
+ - Wanderley Vieira
+ - Arthur Grizone
