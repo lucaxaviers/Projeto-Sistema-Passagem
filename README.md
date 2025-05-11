@@ -1,6 +1,6 @@
 # ✈️ Sistema de Passagens Aéreas - Projeto Academico
 
-# 📌 Sobre o Sistema
+## 📌 Sobre o Sistema
 O Sistema de Passagens Aéreas foi desenvolvido como projeto educacional com o objetivo
 de simular um sistema simples de cadastro de voos, gerenciamento de passageiros e
 venda de passagens, utilizando Python e estruturas de dados como listas e dicionários.
