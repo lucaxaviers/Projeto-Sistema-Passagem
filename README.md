@@ -15,12 +15,6 @@ para diferentes voos.
 
 ## 🛠️ Desenvolvimento
  - O sistema foi feito com Python, utilizando somente recursos nativos da linguagem.
- - Durante o projeto, tivemos dificuldades em relacionar corretamente os passageiros com
-múltiplos voos, o que foi resolvido com listas internas nos dicionários.
- - A estrutura inicial sofreu alguns ajustes para melhorar a organização e facilitar as
-buscas por origem e destino.
- - A equipe trabalhou de forma colaborativa, dividindo as tarefas para garantir que cada
-funcionalidade fosse implementada corretamente.
 
 ## 💻 Tecnologias Utilizadas
  - Python 
