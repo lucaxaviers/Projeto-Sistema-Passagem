@@ -117,18 +117,19 @@ while opcaomenu != 7:
             print("Nenhum voo encontrado com essa origem e destino.")
 
     elif opcaomenu == 4:
+      
         codigovoo = input("Digite o código do voo para listar passageiros: ")
         if codigovoo not in voos:
             print("Voo não encontrado.")
         else:
-            print(f"Passageiros do voo {codigovoo}:")
-            passageiros_do_voo = [cpf for cpf, voos_p in passageiros.items() if codigovoo in voos_p]
-            if passageiros_do_voo:
-                for cpf in passageiros_do_voo:
-                    nome = dados_passageiros.get(cpf, {}).get("nome", "Nome não cadastrado")
-                    print(f"CPF: {cpf}, Nome: {nome}")
-            else:
+            passageiros_do_voo = [cpf for cpf, voos_p in passageiros.items() if codigovoo in voos_p and cpf in dados_passageiros]
+            if not passageiros_do_voo:
                 print("Nenhum passageiro cadastrado para este voo.")
+            else:
+                print(f"Passageiros do voo {codigovoo}:")
+                for cpf in passageiros_do_voo:
+                    nome = dados_passageiros[cpf]["nome"]
+                    print(f"CPF: {cpf}, Nome: {nome}")
 
     elif opcaomenu == 5:
         nome = input("Digite o nome do passageiro: ")
