@@ -1,5 +1,6 @@
 voos = {}
-passageiros = {}
+passageiros = {}  
+dados_passageiros = {}  
 opcaomenu = 0
 
 while opcaomenu != 7:
@@ -44,7 +45,6 @@ while opcaomenu != 7:
                 "escalas_cidades": escalas_cidades
             }
 
-            passageiros[codigovoo] = []  
             print(f"Voo {codigovoo} cadastrado com sucesso!")
 
     elif opcaomenu == 2:
@@ -115,3 +115,56 @@ while opcaomenu != 7:
             print(f"Preço: R${voos[melhor_codigo]['preco']:.2f}")
         else:
             print("Nenhum voo encontrado com essa origem e destino.")
+
+    elif opcaomenu == 4:
+        codigovoo = input("Digite o código do voo para listar passageiros: ")
+        if codigovoo not in voos:
+            print("Voo não encontrado.")
+        else:
+            print(f"Passageiros do voo {codigovoo}:")
+            passageiros_do_voo = [cpf for cpf, voos_p in passageiros.items() if codigovoo in voos_p]
+            if passageiros_do_voo:
+                for cpf in passageiros_do_voo:
+                    nome = dados_passageiros.get(cpf, {}).get("nome", "Nome não cadastrado")
+                    print(f"CPF: {cpf}, Nome: {nome}")
+            else:
+                print("Nenhum passageiro cadastrado para este voo.")
+
+    elif opcaomenu == 5:
+        nome = input("Digite o nome do passageiro: ")
+        cpf = input("Digite o CPF do passageiro: ")
+        codigovoo = input("Digite o código do voo: ")
+
+        if codigovoo not in voos:
+            print("Código de voo inválido.")
+        else:
+            if voos[codigovoo]['lugares_disponiveis'] > 0:
+                voos[codigovoo]['lugares_disponiveis'] -= 1
+
+                if cpf not in passageiros:
+                    passageiros[cpf] = []  
+                    dados_passageiros[cpf] = {"nome": nome}
+
+                if codigovoo not in passageiros[cpf]:
+                    passageiros[cpf].append(codigovoo)  
+
+                print("Passagem vendida com sucesso!")
+            else:
+                print("Não há lugares disponíveis nesse voo.")
+
+    elif opcaomenu == 6:
+        cpf = input("Digite o CPF do passageiro para cancelar passagem: ")
+        codigovoo = input("Digite o código do voo: ")
+
+        if cpf in passageiros and codigovoo in passageiros[cpf]:
+            passageiros[cpf].remove(codigovoo)
+            voos[codigovoo]['lugares_disponiveis'] += 1
+            print("Passagem cancelada com sucesso!")
+        else:
+            print("Passagem não encontrada para o CPF e voo informados.")
+
+    elif opcaomenu == 7:
+        print("Saindo do sistema. Até logo!")
+
+    else:
+        print("Opção inválida. Tente novamente.")
